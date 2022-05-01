@@ -1,6 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:f1_calendar/services/event_text.dart';
-import 'package:f1_calendar/services/event_data.dart';
+import 'package:f1_calendar/services/f1_event_data.dart';
 import 'package:intl/intl.dart';
 
 class F1Screen extends StatefulWidget {
@@ -46,25 +47,34 @@ class _F1ScreenState extends State<F1Screen> {
     updateUI(widget.location);
   }
 
-  Future updateUI(dynamic eventName) async {
+  Future updateUI(dynamic) async {
     var event = await eventDescription.getEventData();
+
+    int eventNumber = 0;
+    String eventNumberCall = event['stages'][eventNumber]['status'];
+
+    while (eventNumberCall == 'Closed') {
+      eventNumber++;
+      eventNumberCall = event['stages'][eventNumber]['status'];
+    }
+
     DateFormat timeFormat = DateFormat("HH:mm");
     DateFormat dateFormat = DateFormat("yyyy-MM-dd");
     setState(
       () {
-        nextEvent = event['stages'][4]['description'];
+        nextEvent = event['stages'][eventNumber]['description'];
 
-        session1Start = event['stages'][4]['stages'][0]['scheduled'];
-        session2Start = event['stages'][4]['stages'][1]['scheduled'];
-        session3Start = event['stages'][4]['stages'][2]['scheduled'];
-        session4Start = event['stages'][4]['stages'][3]['scheduled'];
-        session5Start = event['stages'][4]['stages'][4]['scheduled'];
+        session1Start = event['stages'][eventNumber]['stages'][0]['scheduled'];
+        session2Start = event['stages'][eventNumber]['stages'][1]['scheduled'];
+        session3Start = event['stages'][eventNumber]['stages'][2]['scheduled'];
+        session4Start = event['stages'][eventNumber]['stages'][3]['scheduled'];
+        session5Start = event['stages'][eventNumber]['stages'][4]['scheduled'];
 
-        session1Name = event['stages'][4]['stages'][0]['description'];
-        session2Name = event['stages'][4]['stages'][1]['description'];
-        session3Name = event['stages'][4]['stages'][2]['description'];
-        session4Name = event['stages'][4]['stages'][3]['description'];
-        session5Name = event['stages'][4]['stages'][4]['description'];
+        session1Name = event['stages'][eventNumber]['stages'][0]['description'];
+        session2Name = event['stages'][eventNumber]['stages'][1]['description'];
+        session3Name = event['stages'][eventNumber]['stages'][2]['description'];
+        session4Name = event['stages'][eventNumber]['stages'][3]['description'];
+        session5Name = event['stages'][eventNumber]['stages'][4]['description'];
 
         timeFormat1 =
             timeFormat.format(DateTime.parse(session1Start).toLocal());
