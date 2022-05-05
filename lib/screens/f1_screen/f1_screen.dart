@@ -1,13 +1,15 @@
+import 'package:f1_calendar/screens/f1_screen/main_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:f1_calendar/services/event_text.dart';
 import 'package:f1_calendar/services/f1_event_data.dart';
 import 'package:intl/intl.dart';
+import 'f1_loading_screen.dart';
 
 class F1Screen extends StatefulWidget {
-  F1Screen({this.location});
+  F1Screen({this.event});
 
-  final location;
+  final event;
 
   @override
   State<F1Screen> createState() => _F1ScreenState();
@@ -44,37 +46,45 @@ class _F1ScreenState extends State<F1Screen> {
   @override
   void initState() {
     super.initState();
-    updateUI(widget.location);
+    UI(widget.event);
   }
 
-  Future updateUI(dynamic) async {
-    var event = await eventDescription.getEventData();
-
+  Future UI(dynamic eventData) async {
     int eventNumber = 0;
-    String eventNumberCall = event['stages'][eventNumber]['status'];
+    String eventNumberCall = eventData['stages'][eventNumber]['status'];
 
     while (eventNumberCall == 'Closed') {
       eventNumber++;
-      eventNumberCall = event['stages'][eventNumber]['status'];
+      eventNumberCall = eventData['stages'][eventNumber]['status'];
     }
 
     DateFormat timeFormat = DateFormat("HH:mm");
     DateFormat dateFormat = DateFormat("yyyy-MM-dd");
     setState(
       () {
-        nextEvent = event['stages'][eventNumber]['description'];
+        nextEvent = eventData['stages'][eventNumber]['description'];
 
-        session1Start = event['stages'][eventNumber]['stages'][0]['scheduled'];
-        session2Start = event['stages'][eventNumber]['stages'][1]['scheduled'];
-        session3Start = event['stages'][eventNumber]['stages'][2]['scheduled'];
-        session4Start = event['stages'][eventNumber]['stages'][3]['scheduled'];
-        session5Start = event['stages'][eventNumber]['stages'][4]['scheduled'];
+        session1Start =
+            eventData['stages'][eventNumber]['stages'][0]['scheduled'];
+        session2Start =
+            eventData['stages'][eventNumber]['stages'][1]['scheduled'];
+        session3Start =
+            eventData['stages'][eventNumber]['stages'][2]['scheduled'];
+        session4Start =
+            eventData['stages'][eventNumber]['stages'][3]['scheduled'];
+        session5Start =
+            eventData['stages'][eventNumber]['stages'][4]['scheduled'];
 
-        session1Name = event['stages'][eventNumber]['stages'][0]['description'];
-        session2Name = event['stages'][eventNumber]['stages'][1]['description'];
-        session3Name = event['stages'][eventNumber]['stages'][2]['description'];
-        session4Name = event['stages'][eventNumber]['stages'][3]['description'];
-        session5Name = event['stages'][eventNumber]['stages'][4]['description'];
+        session1Name =
+            eventData['stages'][eventNumber]['stages'][0]['description'];
+        session2Name =
+            eventData['stages'][eventNumber]['stages'][1]['description'];
+        session3Name =
+            eventData['stages'][eventNumber]['stages'][2]['description'];
+        session4Name =
+            eventData['stages'][eventNumber]['stages'][3]['description'];
+        session5Name =
+            eventData['stages'][eventNumber]['stages'][4]['description'];
 
         timeFormat1 =
             timeFormat.format(DateTime.parse(session1Start).toLocal());
@@ -107,6 +117,18 @@ class _F1ScreenState extends State<F1Screen> {
       home: Scaffold(
         backgroundColor: Colors.blueGrey[100],
         appBar: AppBar(
+          leading: GestureDetector(
+            child: Icon(
+              Icons.arrow_back_ios,
+              color: Colors.black,
+            ),
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                    builder: (BuildContext context) => MainScreen()),
+              );
+            },
+          ),
           toolbarHeight: 60,
           backgroundColor: Colors.amber[600],
           centerTitle: true,
@@ -117,7 +139,7 @@ class _F1ScreenState extends State<F1Screen> {
                 WidgetSpan(
                   child: Image(
                     image: AssetImage('icons/racecar100.png'),
-                    height: 45,
+                    height: 50,
                   ),
                 ),
               ],
@@ -280,3 +302,5 @@ class _F1ScreenState extends State<F1Screen> {
     );
   }
 }
+
+//TODO back button behaviour (go back to MainScreen)

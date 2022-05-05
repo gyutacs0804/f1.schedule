@@ -1,4 +1,4 @@
-import 'package:f1_calendar/services/networking_f1.dart';
+import 'package:f1_calendar/services/networking.dart';
 
 const apiKey = '3t4edw6mu7y5e8ug524nvg4u';
 const sportRadarUrl =
