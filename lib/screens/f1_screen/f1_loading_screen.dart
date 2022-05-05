@@ -22,13 +22,13 @@ class _F1LoadingScreenState extends State<F1LoadingScreen> {
   }
 
   void updateUI(dynamic) async {
-    var event1 = await eventDescription.getEventData();
+    var eventInfo = await eventDescription.getEventData();
     Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) {
           return F1Screen(
-            event: event1,
+            event: eventInfo,
           );
         },
       ),
@@ -79,8 +79,10 @@ class _F1LoadingScreenState extends State<F1LoadingScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SpinKitSpinningLines(
-                    color: Colors.white,
-                    size: 50.0,
+                    itemCount: 5,
+                    color: Colors.amber,
+                    lineWidth: 6,
+                    size: 80.0,
                   ),
                 ],
               ),

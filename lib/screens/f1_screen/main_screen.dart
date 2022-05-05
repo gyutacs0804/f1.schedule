@@ -55,6 +55,23 @@ class _MainScreenState extends State<MainScreen> {
                     sport: 'Formula 1',
                     screen: F1LoadingScreen(),
                   ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  ChoosingSportButton(
+                    sport: 'IndyCar',
+                    screen: F1LoadingScreen(),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  ChoosingSportButton(
+                    sport: 'Nascar',
+                    screen: F1LoadingScreen(),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
                 ],
               ),
             ),

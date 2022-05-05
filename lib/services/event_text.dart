@@ -14,7 +14,7 @@ class EventText extends StatelessWidget {
           fontSize: 15,
           fontFamily: 'roboto',
           fontWeight: FontWeight.w400,
-          //fontStyle: FontStyle.italic,
+          fontStyle: FontStyle.italic,
         ),
       ),
     );

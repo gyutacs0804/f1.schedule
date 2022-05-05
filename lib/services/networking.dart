@@ -15,6 +15,7 @@ class NetworkingF1 {
       return jsonDecode(data);
     } else {
       print(response.statusCode);
+      print('no response');
     }
   }
 }

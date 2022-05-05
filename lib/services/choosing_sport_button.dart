@@ -9,8 +9,14 @@ class ChoosingSportButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      style:
-          ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.white)),
+      style: ButtonStyle(
+        fixedSize: MaterialStateProperty.all(
+          Size(250, 45),
+        ),
+        backgroundColor: MaterialStateProperty.all(Colors.white),
+        shadowColor: MaterialStateProperty.all(Colors.amberAccent),
+        elevation: MaterialStateProperty.all(3),
+      ),
       onPressed: () async {
         Navigator.push(
           context,

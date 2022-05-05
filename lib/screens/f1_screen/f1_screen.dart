@@ -5,6 +5,7 @@ import 'package:f1_calendar/services/event_text.dart';
 import 'package:f1_calendar/services/f1_event_data.dart';
 import 'package:intl/intl.dart';
 import 'f1_loading_screen.dart';
+import 'package:f1_calendar/services/choosing_sport_button.dart';
 
 class F1Screen extends StatefulWidget {
   F1Screen({this.event});
@@ -18,30 +19,30 @@ class F1Screen extends StatefulWidget {
 class _F1ScreenState extends State<F1Screen> {
   ScheduleModel eventDescription = ScheduleModel();
 
-  String nextEvent = '...';
-  String session1Start = '...';
-  String session2Start = '...';
-  String session3Start = '...';
-  String session4Start = '...';
-  String session5Start = '...';
+  dynamic nextEvent;
+  dynamic session1Start;
+  dynamic session2Start;
+  dynamic session3Start;
+  dynamic session4Start;
+  dynamic session5Start;
 
-  String session1Name = '...';
-  String session2Name = '...';
-  String session3Name = '...';
-  String session4Name = '...';
-  String session5Name = '...';
+  dynamic session1Name;
+  dynamic session2Name;
+  dynamic session3Name;
+  dynamic session4Name;
+  dynamic session5Name;
 
-  dynamic timeFormat1 = '...';
-  dynamic timeFormat2 = '...';
-  dynamic timeFormat3 = '...';
-  dynamic timeFormat4 = '...';
-  dynamic timeFormat5 = '...';
+  dynamic timeFormat1;
+  dynamic timeFormat2;
+  dynamic timeFormat3;
+  dynamic timeFormat4;
+  dynamic timeFormat5;
 
-  dynamic dateFormat1 = '...';
-  dynamic dateFormat2 = '...';
-  dynamic dateFormat3 = '...';
-  dynamic dateFormat4 = '...';
-  dynamic dateFormat5 = '...';
+  dynamic dateFormat1;
+  dynamic dateFormat2;
+  dynamic dateFormat3;
+  dynamic dateFormat4;
+  dynamic dateFormat5;
 
   @override
   void initState() {
@@ -59,7 +60,7 @@ class _F1ScreenState extends State<F1Screen> {
     }
 
     DateFormat timeFormat = DateFormat("HH:mm");
-    DateFormat dateFormat = DateFormat("yyyy-MM-dd");
+    DateFormat dateFormat = DateFormat("EEEE, yyyy-MM-dd");
     setState(
       () {
         nextEvent = eventData['stages'][eventNumber]['description'];
@@ -119,7 +120,7 @@ class _F1ScreenState extends State<F1Screen> {
         appBar: AppBar(
           leading: GestureDetector(
             child: Icon(
-              Icons.arrow_back_ios,
+              Icons.arrow_back_ios_new,
               color: Colors.black,
             ),
             onTap: () {
@@ -133,13 +134,25 @@ class _F1ScreenState extends State<F1Screen> {
           backgroundColor: Colors.amber[600],
           centerTitle: true,
           title: RichText(
-            textAlign: TextAlign.center,
             text: TextSpan(
               children: [
                 WidgetSpan(
+                  alignment: PlaceholderAlignment.middle,
                   child: Image(
                     image: AssetImage('icons/racecar100.png'),
-                    height: 50,
+                    height: 30,
+                  ),
+                ),
+                WidgetSpan(
+                  alignment: PlaceholderAlignment.middle,
+                  child: Text(
+                    '    Formula 1',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                      fontFamily: 'roboto',
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
                 ),
               ],
@@ -176,7 +189,7 @@ class _F1ScreenState extends State<F1Screen> {
                         SizedBox(height: 30),
                         Container(
                           child: Text(
-                            'Friday, $dateFormat1',
+                            '$dateFormat1',
                             style: TextStyle(
                               letterSpacing: 1.1,
                               fontSize: 18,
@@ -217,7 +230,7 @@ class _F1ScreenState extends State<F1Screen> {
                         ),
                         Container(
                           child: Text(
-                            'Saturday, $dateFormat3',
+                            '$dateFormat3',
                             style: TextStyle(
                               letterSpacing: 1.1,
                               fontSize: 18,
@@ -256,7 +269,7 @@ class _F1ScreenState extends State<F1Screen> {
                         SizedBox(height: 15),
                         Container(
                           child: Text(
-                            'Sunday, $dateFormat5',
+                            '$dateFormat5',
                             style: TextStyle(
                               letterSpacing: 1.1,
                               fontSize: 18,
