@@ -51,18 +51,18 @@ class _F1LoadingScreenState extends State<F1LoadingScreen> {
                 alignment: PlaceholderAlignment.middle,
                 child: Image(
                   image: AssetImage('icons/racecar100.png'),
-                  height: 30,
+                  height: 40,
                 ),
               ),
               WidgetSpan(
                 alignment: PlaceholderAlignment.middle,
                 child: Text(
-                  '    Motorsports Schedule',
+                  '  Motorsports Schedule',
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 20,
+                    fontSize: 25,
                     fontFamily: 'roboto',
-                    fontWeight: FontWeight.w400,
+                    fontWeight: FontWeight.w800,
                   ),
                 ),
               ),
@@ -75,6 +75,7 @@ class _F1LoadingScreenState extends State<F1LoadingScreen> {
           image: DecorationImage(
               image: AssetImage('images/mcl.jpg'), fit: BoxFit.fitHeight),
         ),
+        //color: Colors.purple[700],
         child: Row(
           children: [
             Expanded(

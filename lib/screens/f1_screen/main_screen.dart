@@ -10,229 +10,234 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        toolbarHeight: 60,
-        backgroundColor: Colors.amber[600],
-        centerTitle: true,
-        title: RichText(
-          textAlign: TextAlign.center,
-          text: TextSpan(
-            children: [
-              WidgetSpan(
-                alignment: PlaceholderAlignment.middle,
-                child: Image(
-                  image: AssetImage('icons/racecar100.png'),
-                  height: 30,
-                ),
-              ),
-              WidgetSpan(
-                alignment: PlaceholderAlignment.middle,
-                child: Text(
-                  '    Motorsports Schedule',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 20,
-                    fontFamily: 'roboto',
-                    fontWeight: FontWeight.w400,
+    return WillPopScope(
+      onWillPop: () async {
+        return false;
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          toolbarHeight: 60,
+          backgroundColor: Colors.amber[600],
+          centerTitle: true,
+          title: RichText(
+            textAlign: TextAlign.center,
+            text: TextSpan(
+              children: [
+                WidgetSpan(
+                  alignment: PlaceholderAlignment.middle,
+                  child: Image(
+                    image: AssetImage('icons/racecar100.png'),
+                    height: 40,
                   ),
                 ),
-              ),
-            ],
-          ),
-        ),
-      ),
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage('images/mcl.jpg'), fit: BoxFit.fitHeight),
-        ),
-        child: ListView(
-          children: [
-            Row(
-              children: [
-                Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        height: 10,
-                      ),
-                      ChoosingSportButton(
-                        sport: 'Formula 1',
-                        screen: F1LoadingScreen(),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      ChoosingSportButton(
-                        sport: 'IndyCar',
-                        screen: F1LoadingScreen(),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      ChoosingSportButton(
-                        sport: 'Nascar',
-                        screen: F1LoadingScreen(),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      ChoosingSportButton(
-                        sport: 'Formula 1',
-                        screen: F1LoadingScreen(),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      ChoosingSportButton(
-                        sport: 'IndyCar',
-                        screen: F1LoadingScreen(),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      ChoosingSportButton(
-                        sport: 'Nascar',
-                        screen: F1LoadingScreen(),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      ChoosingSportButton(
-                        sport: 'Formula 1',
-                        screen: F1LoadingScreen(),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      ChoosingSportButton(
-                        sport: 'IndyCar',
-                        screen: F1LoadingScreen(),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      ChoosingSportButton(
-                        sport: 'Nascar',
-                        screen: F1LoadingScreen(),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      ChoosingSportButton(
-                        sport: 'Formula 1',
-                        screen: F1LoadingScreen(),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      ChoosingSportButton(
-                        sport: 'IndyCar',
-                        screen: F1LoadingScreen(),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      ChoosingSportButton(
-                        sport: 'Nascar',
-                        screen: F1LoadingScreen(),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      ChoosingSportButton(
-                        sport: 'Formula 1',
-                        screen: F1LoadingScreen(),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      ChoosingSportButton(
-                        sport: 'IndyCar',
-                        screen: F1LoadingScreen(),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      ChoosingSportButton(
-                        sport: 'Nascar',
-                        screen: F1LoadingScreen(),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      ChoosingSportButton(
-                        sport: 'Formula 1',
-                        screen: F1LoadingScreen(),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      ChoosingSportButton(
-                        sport: 'IndyCar',
-                        screen: F1LoadingScreen(),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      ChoosingSportButton(
-                        sport: 'Nascar',
-                        screen: F1LoadingScreen(),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      ChoosingSportButton(
-                        sport: 'Formula 1',
-                        screen: F1LoadingScreen(),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      ChoosingSportButton(
-                        sport: 'IndyCar',
-                        screen: F1LoadingScreen(),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      ChoosingSportButton(
-                        sport: 'Nascar',
-                        screen: F1LoadingScreen(),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      ChoosingSportButton(
-                        sport: 'Formula 1',
-                        screen: F1LoadingScreen(),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      ChoosingSportButton(
-                        sport: 'IndyCar',
-                        screen: F1LoadingScreen(),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      ChoosingSportButton(
-                        sport: 'Nascar',
-                        screen: F1LoadingScreen(),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                    ],
+                WidgetSpan(
+                  alignment: PlaceholderAlignment.middle,
+                  child: Text(
+                    '  Motorsports Schedule',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 25,
+                      fontFamily: 'roboto',
+                      fontWeight: FontWeight.w800,
+                    ),
                   ),
                 ),
               ],
             ),
-          ],
+          ),
+        ),
+        body: Container(
+          //color: Colors.purple[700],
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('images/mcl.jpg'), fit: BoxFit.fitHeight),
+          ),
+          child: ListView(
+            padding: EdgeInsets.all(20),
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        ChoosingSportButton(
+                          sport: 'Formula 1',
+                          screen: F1LoadingScreen(),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        ChoosingSportButton(
+                          sport: 'IndyCar',
+                          screen: F1LoadingScreen(),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        ChoosingSportButton(
+                          sport: 'Nascar',
+                          screen: F1LoadingScreen(),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        ChoosingSportButton(
+                          sport: 'Formula 1',
+                          screen: F1LoadingScreen(),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        ChoosingSportButton(
+                          sport: 'IndyCar',
+                          screen: F1LoadingScreen(),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        ChoosingSportButton(
+                          sport: 'Nascar',
+                          screen: F1LoadingScreen(),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        ChoosingSportButton(
+                          sport: 'Formula 1',
+                          screen: F1LoadingScreen(),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        ChoosingSportButton(
+                          sport: 'IndyCar',
+                          screen: F1LoadingScreen(),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        ChoosingSportButton(
+                          sport: 'Nascar',
+                          screen: F1LoadingScreen(),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        ChoosingSportButton(
+                          sport: 'Formula 1',
+                          screen: F1LoadingScreen(),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        ChoosingSportButton(
+                          sport: 'IndyCar',
+                          screen: F1LoadingScreen(),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        ChoosingSportButton(
+                          sport: 'Nascar',
+                          screen: F1LoadingScreen(),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        ChoosingSportButton(
+                          sport: 'Formula 1',
+                          screen: F1LoadingScreen(),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        ChoosingSportButton(
+                          sport: 'IndyCar',
+                          screen: F1LoadingScreen(),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        ChoosingSportButton(
+                          sport: 'Nascar',
+                          screen: F1LoadingScreen(),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        ChoosingSportButton(
+                          sport: 'Formula 1',
+                          screen: F1LoadingScreen(),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        ChoosingSportButton(
+                          sport: 'IndyCar',
+                          screen: F1LoadingScreen(),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        ChoosingSportButton(
+                          sport: 'Nascar',
+                          screen: F1LoadingScreen(),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        ChoosingSportButton(
+                          sport: 'Formula 1',
+                          screen: F1LoadingScreen(),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        ChoosingSportButton(
+                          sport: 'IndyCar',
+                          screen: F1LoadingScreen(),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        ChoosingSportButton(
+                          sport: 'Nascar',
+                          screen: F1LoadingScreen(),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        ChoosingSportButton(
+                          sport: 'Formula 1',
+                          screen: F1LoadingScreen(),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        ChoosingSportButton(
+                          sport: 'IndyCar',
+                          screen: F1LoadingScreen(),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        ChoosingSportButton(
+                          sport: 'Nascar',
+                          screen: F1LoadingScreen(),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

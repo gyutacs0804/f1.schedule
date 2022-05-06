@@ -1,3 +1,4 @@
+import 'package:f1_calendar/services/colors.dart';
 import 'package:flutter/material.dart';
 
 class ChoosingSportButton extends StatelessWidget {
@@ -11,9 +12,11 @@ class ChoosingSportButton extends StatelessWidget {
     return ElevatedButton(
       style: ButtonStyle(
         fixedSize: MaterialStateProperty.all(
-          Size(250, 45),
+          Size(0, 45),
         ),
-        backgroundColor: MaterialStateProperty.all(Colors.white),
+        backgroundColor: MaterialStateProperty.all(
+          Colors.purple.withOpacity(0.3),
+        ),
         elevation: MaterialStateProperty.all(3),
       ),
       onPressed: () async {
@@ -27,10 +30,10 @@ class ChoosingSportButton extends StatelessWidget {
       child: Text(
         '$sport',
         style: TextStyle(
-          color: Colors.black,
+          color: kSeriesTextColor,
           fontSize: 20,
           fontFamily: 'roboto',
-          fontWeight: FontWeight.w400,
+          fontWeight: FontWeight.w500,
         ),
       ),
     );

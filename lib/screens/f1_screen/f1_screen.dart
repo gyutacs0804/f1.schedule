@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:f1_calendar/services/event_text.dart';
 import 'package:f1_calendar/services/f1_event_data.dart';
 import 'package:intl/intl.dart';
-import 'f1_loading_screen.dart';
-import 'package:f1_calendar/services/choosing_sport_button.dart';
+import 'package:f1_calendar/services/colors.dart';
 
 class F1Screen extends StatefulWidget {
   F1Screen({this.event});
@@ -149,18 +148,18 @@ class _F1ScreenState extends State<F1Screen> {
                   alignment: PlaceholderAlignment.middle,
                   child: Image(
                     image: AssetImage('icons/racecar100.png'),
-                    height: 30,
+                    height: 40,
                   ),
                 ),
                 WidgetSpan(
                   alignment: PlaceholderAlignment.middle,
                   child: Text(
-                    '    Formula 1',
+                    '  Formula 1',
                     style: TextStyle(
                       color: Colors.black,
-                      fontSize: 20,
+                      fontSize: 25,
                       fontFamily: 'roboto',
-                      fontWeight: FontWeight.w400,
+                      fontWeight: FontWeight.w800,
                     ),
                   ),
                 ),
@@ -173,6 +172,7 @@ class _F1ScreenState extends State<F1Screen> {
             image: DecorationImage(
                 image: AssetImage('images/mcl.jpg'), fit: BoxFit.fitHeight),
           ),
+          //color: Colors.purple[700],
           child: Padding(
             padding: const EdgeInsets.all(12.0),
             child: Row(
@@ -188,9 +188,9 @@ class _F1ScreenState extends State<F1Screen> {
                         child: Text(
                           'Next event: $nextEvent',
                           style: TextStyle(
-                            color: Colors.white,
+                            color: kSeriesTextColor,
                             letterSpacing: 1.1,
-                            fontSize: 18,
+                            fontSize: 25,
                             fontFamily: 'roboto',
                             fontWeight: FontWeight.w500,
                             //fontStyle: FontStyle.italic,
@@ -205,16 +205,16 @@ class _F1ScreenState extends State<F1Screen> {
                             child: Text(
                               '$dateFormat1',
                               style: TextStyle(
-                                color: Colors.white,
+                                color: kSeriesTextColor,
                                 letterSpacing: 1.1,
-                                fontSize: 18,
+                                fontSize: 22,
                                 fontFamily: 'roboto',
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
                           ),
                           Divider(
-                            color: Colors.white,
+                            color: kSeriesTextColor,
                             height: 3,
                             thickness: 1,
                           ),
@@ -248,16 +248,16 @@ class _F1ScreenState extends State<F1Screen> {
                             child: Text(
                               '$dateFormat3',
                               style: TextStyle(
-                                color: Colors.white,
+                                color: kSeriesTextColor,
                                 letterSpacing: 1.1,
-                                fontSize: 18,
+                                fontSize: 22,
                                 fontFamily: 'roboto',
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
                           ),
                           Divider(
-                            color: Colors.white,
+                            color: kSeriesTextColor,
                             height: 3,
                             thickness: 1,
                           ),
@@ -289,16 +289,16 @@ class _F1ScreenState extends State<F1Screen> {
                             child: Text(
                               '$dateFormat5',
                               style: TextStyle(
-                                color: Colors.white,
+                                color: kSeriesTextColor,
                                 letterSpacing: 1.1,
-                                fontSize: 18,
+                                fontSize: 22,
                                 fontFamily: 'roboto',
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
                           ),
                           Divider(
-                            color: Colors.white,
+                            color: kSeriesTextColor,
                             height: 3,
                             thickness: 1,
                           ),
