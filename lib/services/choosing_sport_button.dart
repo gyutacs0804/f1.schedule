@@ -14,7 +14,6 @@ class ChoosingSportButton extends StatelessWidget {
           Size(250, 45),
         ),
         backgroundColor: MaterialStateProperty.all(Colors.white),
-        shadowColor: MaterialStateProperty.all(Colors.amberAccent),
         elevation: MaterialStateProperty.all(3),
       ),
       onPressed: () async {

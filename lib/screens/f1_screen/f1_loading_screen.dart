@@ -71,7 +71,10 @@ class _F1LoadingScreenState extends State<F1LoadingScreen> {
         ),
       ),
       body: Container(
-        color: Colors.blueGrey[100],
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('images/mcl.jpg'), fit: BoxFit.fitHeight),
+        ),
         child: Row(
           children: [
             Expanded(

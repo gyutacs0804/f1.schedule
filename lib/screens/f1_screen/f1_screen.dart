@@ -114,8 +114,16 @@ class _F1ScreenState extends State<F1Screen> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return WillPopScope(
+      onWillPop: () async {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (BuildContext context) => MainScreen(),
+          ),
+        );
+        return false;
+      },
+      child: Scaffold(
         backgroundColor: Colors.blueGrey[100],
         appBar: AppBar(
           leading: GestureDetector(
@@ -126,7 +134,8 @@ class _F1ScreenState extends State<F1Screen> {
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                    builder: (BuildContext context) => MainScreen()),
+                  builder: (BuildContext context) => MainScreen(),
+                ),
               );
             },
           ),
@@ -159,161 +168,171 @@ class _F1ScreenState extends State<F1Screen> {
             ),
           ),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SizedBox(height: 15),
-                    Container(
-                      //color: Colors.blue,
-                      child: Text(
-                        'Next event: $nextEvent',
-                        style: TextStyle(
-                          letterSpacing: 1.1,
-                          fontSize: 18,
-                          fontFamily: 'roboto',
-                          fontWeight: FontWeight.w500,
-                          //fontStyle: FontStyle.italic,
+        body: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('images/mcl.jpg'), fit: BoxFit.fitHeight),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(height: 15),
+                      Container(
+                        child: Text(
+                          'Next event: $nextEvent',
+                          style: TextStyle(
+                            color: Colors.white,
+                            letterSpacing: 1.1,
+                            fontSize: 18,
+                            fontFamily: 'roboto',
+                            fontWeight: FontWeight.w500,
+                            //fontStyle: FontStyle.italic,
+                          ),
                         ),
                       ),
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(height: 30),
-                        Container(
-                          child: Text(
-                            '$dateFormat1',
-                            style: TextStyle(
-                              letterSpacing: 1.1,
-                              fontSize: 18,
-                              fontFamily: 'roboto',
-                              fontWeight: FontWeight.w500,
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(height: 30),
+                          Container(
+                            child: Text(
+                              '$dateFormat1',
+                              style: TextStyle(
+                                color: Colors.white,
+                                letterSpacing: 1.1,
+                                fontSize: 18,
+                                fontFamily: 'roboto',
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                           ),
-                        ),
-                        Divider(
-                          height: 3,
-                          thickness: 1,
-                        ),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  EventText(title: '$session1Name'),
-                                  EventText(title: '$session2Name'),
-                                ],
+                          Divider(
+                            color: Colors.white,
+                            height: 3,
+                            thickness: 1,
+                          ),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    EventText(title: '$session1Name'),
+                                    EventText(title: '$session2Name'),
+                                  ],
+                                ),
                               ),
-                            ),
-                            //SizedBox(width: 70),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  EventText(title: '$timeFormat1'),
-                                  EventText(title: '$timeFormat2'),
-                                ],
+                              //SizedBox(width: 70),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    EventText(title: '$timeFormat1'),
+                                    EventText(title: '$timeFormat2'),
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Container(
-                          child: Text(
-                            '$dateFormat3',
-                            style: TextStyle(
-                              letterSpacing: 1.1,
-                              fontSize: 18,
-                              fontFamily: 'roboto',
-                              fontWeight: FontWeight.w500,
+                            ],
+                          ),
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Container(
+                            child: Text(
+                              '$dateFormat3',
+                              style: TextStyle(
+                                color: Colors.white,
+                                letterSpacing: 1.1,
+                                fontSize: 18,
+                                fontFamily: 'roboto',
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                           ),
-                        ),
-                        Divider(
-                          height: 3,
-                          thickness: 1,
-                        ),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  EventText(title: '$session3Name'),
-                                  EventText(title: '$session4Name'),
-                                ],
+                          Divider(
+                            color: Colors.white,
+                            height: 3,
+                            thickness: 1,
+                          ),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    EventText(title: '$session3Name'),
+                                    EventText(title: '$session4Name'),
+                                  ],
+                                ),
                               ),
-                            ),
-                            //SizedBox(width: 70),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  EventText(title: '$timeFormat3'),
-                                  EventText(title: '$timeFormat4'),
-                                ],
+                              //SizedBox(width: 70),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    EventText(title: '$timeFormat3'),
+                                    EventText(title: '$timeFormat4'),
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 15),
-                        Container(
-                          child: Text(
-                            '$dateFormat5',
-                            style: TextStyle(
-                              letterSpacing: 1.1,
-                              fontSize: 18,
-                              fontFamily: 'roboto',
-                              fontWeight: FontWeight.w500,
+                            ],
+                          ),
+                          SizedBox(height: 15),
+                          Container(
+                            child: Text(
+                              '$dateFormat5',
+                              style: TextStyle(
+                                color: Colors.white,
+                                letterSpacing: 1.1,
+                                fontSize: 18,
+                                fontFamily: 'roboto',
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                           ),
-                        ),
-                        Divider(
-                          height: 3,
-                          thickness: 1,
-                        ),
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  EventText(title: '$session5Name'),
-                                ],
+                          Divider(
+                            color: Colors.white,
+                            height: 3,
+                            thickness: 1,
+                          ),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    EventText(title: '$session5Name'),
+                                  ],
+                                ),
                               ),
-                            ),
-                            //SizedBox(width: 70),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  EventText(title: '$timeFormat5'),
-                                ],
+                              //SizedBox(width: 70),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    EventText(title: '$timeFormat5'),
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 }
-
-//TODO back button behaviour (go back to MainScreen)

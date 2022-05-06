@@ -11,10 +11,11 @@ class EventText extends StatelessWidget {
       child: Text(
         '$title',
         style: TextStyle(
+          color: Colors.white,
           fontSize: 15,
           fontFamily: 'roboto',
           fontWeight: FontWeight.w400,
-          fontStyle: FontStyle.italic,
+          //fontStyle: FontStyle.italic,
         ),
       ),
     );
