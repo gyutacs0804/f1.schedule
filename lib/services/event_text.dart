@@ -11,7 +11,7 @@ class EventText extends StatelessWidget {
       child: Text(
         '$title',
         style: TextStyle(
-          color: Colors.amber.withOpacity(0.7),
+          color: Color(0xFF20D71F).withOpacity(0.7),
           fontSize: 20,
           fontFamily: 'roboto',
           fontWeight: FontWeight.w400,

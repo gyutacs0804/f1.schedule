@@ -40,7 +40,7 @@ class _F1LoadingScreenState extends State<F1LoadingScreen> {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 60,
-        backgroundColor: Colors.amber[600],
+        backgroundColor: Color(0xFF20D71F),
         centerTitle: true,
         automaticallyImplyLeading: false,
         title: RichText(
@@ -84,7 +84,7 @@ class _F1LoadingScreenState extends State<F1LoadingScreen> {
                 children: [
                   SpinKitSpinningLines(
                     itemCount: 5,
-                    color: Colors.amber,
+                    color: Color(0xFF20D71F),
                     lineWidth: 6,
                     size: 80.0,
                   ),

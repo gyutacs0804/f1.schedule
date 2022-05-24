@@ -139,7 +139,7 @@ class _F1ScreenState extends State<F1Screen> {
             },
           ),
           toolbarHeight: 60,
-          backgroundColor: Colors.amber[600],
+          backgroundColor: Color(0xFF20D71F),
           centerTitle: true,
           title: RichText(
             text: TextSpan(
