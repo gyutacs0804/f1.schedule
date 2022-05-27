@@ -2,21 +2,21 @@ import 'package:f1_calendar/screens/f1_screen/main_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:f1_calendar/services/event_text.dart';
-import 'package:f1_calendar/services/f1_event_data.dart';
+import 'package:f1_calendar/services/indycar_event_data.dart';
 import 'package:intl/intl.dart';
 import 'package:f1_calendar/services/colors.dart';
 
-class F1Screen extends StatefulWidget {
-  F1Screen({this.event});
+class IndyCarScreen extends StatefulWidget {
+  IndyCarScreen({this.event});
 
   final event;
 
   @override
-  State<F1Screen> createState() => _F1ScreenState();
+  State<IndyCarScreen> createState() => _IndyCarScreenState();
 }
 
-class _F1ScreenState extends State<F1Screen> {
-  ScheduleModelF1 eventDescription = ScheduleModelF1();
+class _IndyCarScreenState extends State<IndyCarScreen> {
+  ScheduleModelIndycar eventDescription = ScheduleModelIndycar();
 
   dynamic nextEvent;
   dynamic session1Start;
@@ -27,6 +27,10 @@ class _F1ScreenState extends State<F1Screen> {
   dynamic session6Start;
   dynamic session7Start;
   dynamic session8Start;
+  dynamic session9Start;
+  dynamic session10Start;
+  dynamic session11Start;
+  dynamic session12Start;
 
   dynamic session1Name;
   dynamic session2Name;
@@ -36,6 +40,10 @@ class _F1ScreenState extends State<F1Screen> {
   dynamic session6Name;
   dynamic session7Name;
   dynamic session8Name;
+  dynamic session9Name;
+  dynamic session10Name;
+  dynamic session11Name;
+  dynamic session12Name;
 
   dynamic timeFormat1;
   dynamic timeFormat2;
@@ -45,6 +53,10 @@ class _F1ScreenState extends State<F1Screen> {
   dynamic timeFormat6;
   dynamic timeFormat7;
   dynamic timeFormat8;
+  dynamic timeFormat9;
+  dynamic timeFormat10;
+  dynamic timeFormat11;
+  dynamic timeFormat12;
 
   dynamic weekday1;
   dynamic weekday2;
@@ -54,6 +66,10 @@ class _F1ScreenState extends State<F1Screen> {
   dynamic weekday6;
   dynamic weekday7;
   dynamic weekday8;
+  dynamic weekday9;
+  dynamic weekday10;
+  dynamic weekday11;
+  dynamic weekday12;
 
   @override
   void initState() {
@@ -132,6 +148,34 @@ class _F1ScreenState extends State<F1Screen> {
         }
         ;
         try {
+          session9Start =
+              eventData['stages'][eventNumber]['stages'][8]['scheduled'];
+        } catch (e) {
+          session9Start;
+        }
+        ;
+        try {
+          session10Start =
+              eventData['stages'][eventNumber]['stages'][9]['scheduled'];
+        } catch (e) {
+          session10Start;
+        }
+        ;
+        try {
+          session11Start =
+              eventData['stages'][eventNumber]['stages'][10]['scheduled'];
+        } catch (e) {
+          session11Start;
+        }
+        ;
+        try {
+          session12Start =
+              eventData['stages'][eventNumber]['stages'][11]['scheduled'];
+        } catch (e) {
+          session12Start;
+        }
+        ;
+        try {
           session1Name =
               eventData['stages'][eventNumber]['stages'][0]['description'];
         } catch (e) {
@@ -185,6 +229,34 @@ class _F1ScreenState extends State<F1Screen> {
               eventData['stages'][eventNumber]['stages'][7]['description'];
         } catch (e) {
           session8Name;
+        }
+        ;
+        try {
+          session9Name =
+              eventData['stages'][eventNumber]['stages'][8]['description'];
+        } catch (e) {
+          session9Name;
+        }
+        ;
+        try {
+          session10Name =
+              eventData['stages'][eventNumber]['stages'][9]['description'];
+        } catch (e) {
+          session10Name;
+        }
+        ;
+        try {
+          session11Name =
+              eventData['stages'][eventNumber]['stages'][10]['description'];
+        } catch (e) {
+          session11Name;
+        }
+        ;
+        try {
+          session12Name =
+              eventData['stages'][eventNumber]['stages'][11]['description'];
+        } catch (e) {
+          session12Name;
         }
         ;
         try {
@@ -243,6 +315,34 @@ class _F1ScreenState extends State<F1Screen> {
           timeFormat8;
         }
         ;
+        try {
+          timeFormat9 =
+              timeFormat.format(DateTime.parse(session9Start).toLocal());
+        } catch (e) {
+          timeFormat9;
+        }
+        ;
+        try {
+          timeFormat10 =
+              timeFormat.format(DateTime.parse(session10Start).toLocal());
+        } catch (e) {
+          timeFormat10;
+        }
+        ;
+        try {
+          timeFormat11 =
+              timeFormat.format(DateTime.parse(session11Start).toLocal());
+        } catch (e) {
+          timeFormat11;
+        }
+        ;
+        try {
+          timeFormat12 =
+              timeFormat.format(DateTime.parse(session12Start).toLocal());
+        } catch (e) {
+          timeFormat12;
+        }
+        ;
 
         weekday1 = dateFormat.format(DateTime.parse(session1Start).toLocal());
         weekday2 = dateFormat.format(DateTime.parse(session2Start).toLocal());
@@ -252,6 +352,10 @@ class _F1ScreenState extends State<F1Screen> {
         weekday6 = dateFormat.format(DateTime.parse(session6Start).toLocal());
         weekday7 = dateFormat.format(DateTime.parse(session7Start).toLocal());
         weekday8 = dateFormat.format(DateTime.parse(session8Start).toLocal());
+        weekday9 = dateFormat.format(DateTime.parse(session9Start).toLocal());
+        weekday10 = dateFormat.format(DateTime.parse(session10Start).toLocal());
+        weekday11 = dateFormat.format(DateTime.parse(session11Start).toLocal());
+        weekday12 = dateFormat.format(DateTime.parse(session12Start).toLocal());
       },
     );
   }
@@ -299,7 +403,7 @@ class _F1ScreenState extends State<F1Screen> {
                 WidgetSpan(
                   alignment: PlaceholderAlignment.middle,
                   child: Text(
-                    '  Formula 1',
+                    '  IndyCar',
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 25,
@@ -384,6 +488,22 @@ class _F1ScreenState extends State<F1Screen> {
                                         ? EventText(
                                             title: '$session8Name, $weekday8')
                                         : SizedBox.shrink(),
+                                    session9Name != null
+                                        ? EventText(
+                                            title: '$session9Name, $weekday9')
+                                        : SizedBox.shrink(),
+                                    session10Name != null
+                                        ? EventText(
+                                            title: '$session10Name, $weekday10')
+                                        : SizedBox.shrink(),
+                                    session11Name != null
+                                        ? EventText(
+                                            title: '$session11Name, $weekday11')
+                                        : SizedBox.shrink(),
+                                    session12Name != null
+                                        ? EventText(
+                                            title: '$session12Name, $weekday12')
+                                        : SizedBox.shrink(),
                                   ],
                                 ),
                                 flex: 7,
@@ -416,6 +536,18 @@ class _F1ScreenState extends State<F1Screen> {
                                         : SizedBox.shrink(),
                                     session8Name != null
                                         ? EventText(title: '$timeFormat8')
+                                        : SizedBox.shrink(),
+                                    session9Name != null
+                                        ? EventText(title: '$timeFormat9')
+                                        : SizedBox.shrink(),
+                                    session10Name != null
+                                        ? EventText(title: '$timeFormat10')
+                                        : SizedBox.shrink(),
+                                    session11Name != null
+                                        ? EventText(title: '$timeFormat11')
+                                        : SizedBox.shrink(),
+                                    session12Name != null
+                                        ? EventText(title: '$timeFormat12')
                                         : SizedBox.shrink(),
                                   ],
                                 ),

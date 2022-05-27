@@ -1,19 +1,20 @@
+import 'package:f1_calendar/services/indycar_event_data.dart';
 import 'package:flutter/material.dart';
-import 'f1_screen.dart';
+import 'indycar_screen.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:f1_calendar/services/f1_event_data.dart';
 
-class F1LoadingScreen extends StatefulWidget {
-  F1LoadingScreen({this.location});
+class IndyCarLoadingScreen extends StatefulWidget {
+  IndyCarLoadingScreen({this.location});
 
   final location;
 
   @override
-  _F1LoadingScreenState createState() => _F1LoadingScreenState();
+  _IndyCarLoadingScreenState createState() => _IndyCarLoadingScreenState();
 }
 
-class _F1LoadingScreenState extends State<F1LoadingScreen> {
-  ScheduleModelF1 eventDescription = ScheduleModelF1();
+class _IndyCarLoadingScreenState extends State<IndyCarLoadingScreen> {
+  ScheduleModelIndycar eventDescription = ScheduleModelIndycar();
 
   @override
   void initState() {
@@ -27,7 +28,7 @@ class _F1LoadingScreenState extends State<F1LoadingScreen> {
       context,
       MaterialPageRoute(
         builder: (context) {
-          return F1Screen(
+          return IndyCarScreen(
             event: eventInfo,
           );
         },
