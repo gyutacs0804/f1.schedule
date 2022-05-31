@@ -63,7 +63,7 @@ class _F1ScreenState extends State<F1Screen> {
 
   Future UI(dynamic eventData) async {
     int eventNumber = 0;
-    String eventNumberCall = eventData['stages'][eventNumber]['status'];
+    String? eventNumberCall = eventData['stages'][eventNumber]['status'];
 
     while (eventNumberCall == 'Closed') {
       eventNumber++;
